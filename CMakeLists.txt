@@ -1,6 +1,9 @@
 cmake_minimum_required(VERSION 3.13)
 add_definitions(-DCMAKE_EXPORT_COMPILE_COMMANDS=ON)
-set(PICO_SDK_PATH "/home/vladimir/proj/pico-sdk")
+
+if(NOT DEFINED ENV{PICO_SDK_PATH})
+  set(PICO_SDK_PATH "/home/vladimir/proj/pico-sdk")
+endif()
 
 include(pico_sdk_import.cmake)
 project(usb2sun C CXX ASM)
@@ -18,6 +21,7 @@ add_executable(usb2sun
   sun_keyboard.c
   adb.c
   apollo.c
+  apollo_dn300.c
 )
 target_include_directories(usb2sun PUBLIC ${CMAKE_CURRENT_LIST_DIR})
 target_link_libraries(usb2sun PUBLIC pico_stdlib tinyusb_host tinyusb_board)

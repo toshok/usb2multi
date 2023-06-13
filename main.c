@@ -14,16 +14,18 @@
 HOST_PROTOTYPES(sun);
 HOST_PROTOTYPES(adb);
 HOST_PROTOTYPES(apollo);
+HOST_PROTOTYPES(apollo_dn300);
 
 static HostDevice hosts[] = {
   HOST_ENTRY(sun),
   HOST_ENTRY(adb),
   HOST_ENTRY(apollo),
+  HOST_ENTRY(apollo_dn300),
   { 0 }
 };
 
 // TODO read from flash
-static int g_current_host_index = 0;
+static int g_current_host_index = 3;
 
 HostDevice *host = NULL;
 
